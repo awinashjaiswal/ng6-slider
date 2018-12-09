@@ -1,0 +1,26 @@
+<div class="viewWindow">
+	<a (click)="shiftL()" class="flex-button-left"><</a>
+
+<div class="group" id="group" >
+  <div class="conveyor" id="conveyor">
+      <div class="flex-item" id="item" *ngFor="let item of products" >
+  		  <div style="margin:2px" >
+          <div class="card">
+            <img src="{{item.image1}}" [width]="width" [height]="height" *ngIf="item.image1">
+            <div class="title" *ngIf="item.name">{{item.name}}</div>
+            <div *ngIf="item.price">{{item.price | currency:"₹"}}</div>
+            <div *ngIf="item.inStock">InStock {{item.inStock}}</div>
+            <div style="text-align: left;padding-left:16px" *ngIf="item.description">{{item.description}}</div>
+            <div style="text-align: center" *ngIf="item.link">
+              <button class="btn" routerLink="{{item.link}}">View</button>
+            </div>
+          </div>
+        </div>
+   </div>
+</div>
+</div>
+
+  <a (click)="shiftR()" class="flex-button-right">></a>
+</div>
+
+

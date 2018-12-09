@@ -121,6 +121,160 @@
           }
         }
       }
+    },
+    "slider": {
+      "root": "projects/slider",
+      "sourceRoot": "projects/slider/src",
+      "projectType": "library",
+      "prefix": "ng6",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/slider/tsconfig.lib.json",
+            "project": "projects/slider/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/slider/src/test.ts",
+            "tsConfig": "projects/slider/tsconfig.spec.json",
+            "karmaConfig": "projects/slider/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/slider/tsconfig.lib.json",
+              "projects/slider/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "slideplayer": {
+      "root": "projects/slideplayer/",
+      "sourceRoot": "projects/slideplayer/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/slideplayer",
+            "index": "projects/slideplayer/src/index.html",
+            "main": "projects/slideplayer/src/main.ts",
+            "polyfills": "projects/slideplayer/src/polyfills.ts",
+            "tsConfig": "projects/slideplayer/tsconfig.app.json",
+            "assets": [
+              "projects/slideplayer/src/favicon.ico",
+              "projects/slideplayer/src/assets"
+            ],
+            "styles": [
+              "projects/slideplayer/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/slideplayer/src/environments/environment.ts",
+                  "with": "projects/slideplayer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "slideplayer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "slideplayer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "slideplayer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/slideplayer/src/test.ts",
+            "polyfills": "projects/slideplayer/src/polyfills.ts",
+            "tsConfig": "projects/slideplayer/tsconfig.spec.json",
+            "karmaConfig": "projects/slideplayer/karma.conf.js",
+            "styles": [
+              "projects/slideplayer/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/slideplayer/src/favicon.ico",
+              "projects/slideplayer/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/slideplayer/tsconfig.app.json",
+              "projects/slideplayer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "slideplayer-e2e": {
+      "root": "projects/slideplayer-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/slideplayer-e2e/protractor.conf.js",
+            "devServerTarget": "slideplayer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "slideplayer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/slideplayer-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ecommerce"
