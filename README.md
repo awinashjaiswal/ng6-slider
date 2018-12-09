@@ -24,7 +24,9 @@ Type `npm install` ng6-slider --save
 ## Use the code in your application
  
 1. Add the code `<ng6-slider [products]="products" [productsToShow]="3"></ng6-slider>` to your components html file
-2. Add the Code code(products:any=[
+2. Add the Code 
+```javascript
+  products:any=[
 	  {
 		  name:"p1",
 		  price:2,
@@ -35,7 +37,7 @@ Type `npm install` ng6-slider --save
 		  description:"some description" 
     },
   ]
-  )
+  ```
   to components ts file as this will provide the details of elemets to be displayed .
   
   ### Note
