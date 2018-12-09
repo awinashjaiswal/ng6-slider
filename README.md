@@ -43,7 +43,7 @@ Type `npm install` ng6-slider --save
   ### Note
   The `products ` variable mention above is array of json and it is not mandetory to provide all the fields mention like `name,price`.
 
-//-------------------- enjoy coding --------------//
+//----------------------------------------------------- enjoy coding ----------------------------------------------------//
 
 
 
