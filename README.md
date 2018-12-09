@@ -21,6 +21,26 @@ Clone the directory in your local pc and open the command promt in the app folde
 
 Type `npm install` ng6-slider --save
 
+## Use the code in your application
+ 
+1. Add the code `<ng6-slider [products]="products" [productsToShow]="3"></ng6-slider>` to your components html file
+2. Add the Code `products:any=[
+	  {
+		  name:"p1",
+		  price:2,
+		  image:"https://images-na.ssl-images-amazon.com/images/I/71KjfWD%2ByeL._SL1500_.jpg",
+		  link:"/home",
+		  linkName:"click",
+		  inStock:3,
+		  description:"some description" 
+    },
+  ]
+  `
+  to components ts file as this will provide the details of elemets to be displayed .
+  
+  ### Note
+  The `products ` variable mention above is array of json and it is not mandetory to provide all the fields mention like `name,price`.
+
 //-------------------- enjoy coding --------------//
 
 
